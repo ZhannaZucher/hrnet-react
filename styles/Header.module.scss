@@ -3,30 +3,32 @@
 
 .header {
   height: 120px;
-  margin: 12px auto;
-  width: 96%;
+  margin: 0 auto;
   @include centered-flex;
   justify-content: space-between;
   font-weight: bold;
   @include small-devices {
-    width: 90%;
+    padding: 0 3vw;
+    height: 80px;
+  }
+  @include x-small-devices {
+    padding: 0;
+    align-items: flex-start;
+    height: 70px;
   }
   .nav {
-    align-self: baseline;
-    padding: 30px 0;
-    @include x-small-devices {
-      padding: 40px 0 0 0;
+    @include centered-flex;
+    @include small-devices {
+      @include vertical-flex;
     }
     a {
       color: $color-black;
       font-size: larger;
       margin-right: 16px;
+      line-height: 30px;
       @include small-devices {
-        display: block;
-        margin-bottom: 12px;
-      }
-      @include x-small-devices {
         font-size: 0.9em;
+        margin-bottom: 0;
       }
       &:hover {
         color: $color-brand-medium;
@@ -34,7 +36,14 @@
     }
     .active {
       color: $color-brand-dark;
-      text-transform: uppercase;
+      &:after {
+        content: "";
+        display: block;
+        margin: auto;
+        height: 2px;
+        width: 100%;
+        background: $color-brand-dark;
+      }
     }
   }
 }
@@ -42,20 +51,31 @@
 .logo {
   @include centered-flex;
   justify-content: space-between;
-
+  height: 100%;
+  @include small-devices {
+    align-items: flex-start;
+  }
   .title {
     @include vertical-flex;
     margin-right: 32px;
-    @include x-small-devices {
-      margin-right: 12px;
+    @include small-devices {
+      align-self: center;
     }
-
+    @include x-small-devices {
+      margin: 2vh 12px 0 0;
+      align-items: flex-end;
+      align-self: flex-start;
+    }
     h1 {
       font-size: 3em;
       text-align: center;
       font-weight: normal;
+      @include small-devices {
+        font-size: 1.5em;
+        font-weight: 700;
+      }
       @include x-small-devices {
-        font-size: 2em;
+        font-size: 1.3em;
         font-weight: 600;
         text-align: right;
       }
@@ -64,8 +84,11 @@
       font-size: 1.2em;
       text-align: center;
       margin-top: 8px;
-      @include x-small-devices {
+      @include small-devices {
         font-size: 1em;
+      }
+      @include x-small-devices {
+        font-size: 0.9em;
         font-weight: 600;
         text-align: right;
       }
@@ -74,6 +97,10 @@
   .container {
     width: 100px;
     height: 100px;
+    @include small-devices {
+      width: 80px;
+      height: 80px;
+    }
     @include x-small-devices {
       width: 60px;
       height: 60px;
@@ -82,6 +109,8 @@
       object-fit: cover;
       object-position: center;
       display: block;
+      width: 100%;
+      height: 100%;
     }
   }
 }
