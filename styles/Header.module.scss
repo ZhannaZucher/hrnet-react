@@ -1,0 +1,87 @@
+@import "./mixins.module.scss";
+@import "./variables.module.scss";
+
+.header {
+  height: 120px;
+  margin: 12px auto;
+  width: 96%;
+  @include centered-flex;
+  justify-content: space-between;
+  font-weight: bold;
+  @include small-devices {
+    width: 90%;
+  }
+  .nav {
+    align-self: baseline;
+    padding: 30px 0;
+    @include x-small-devices {
+      padding: 40px 0 0 0;
+    }
+    a {
+      color: $color-black;
+      font-size: larger;
+      margin-right: 16px;
+      @include small-devices {
+        display: block;
+        margin-bottom: 12px;
+      }
+      @include x-small-devices {
+        font-size: 0.9em;
+      }
+      &:hover {
+        color: $color-brand-medium;
+      }
+    }
+    .active {
+      color: $color-brand-dark;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.logo {
+  @include centered-flex;
+  justify-content: space-between;
+
+  .title {
+    @include vertical-flex;
+    margin-right: 32px;
+    @include x-small-devices {
+      margin-right: 12px;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-align: center;
+      font-weight: normal;
+      @include x-small-devices {
+        font-size: 2em;
+        font-weight: 600;
+        text-align: right;
+      }
+    }
+    h2 {
+      font-size: 1.2em;
+      text-align: center;
+      margin-top: 8px;
+      @include x-small-devices {
+        font-size: 1em;
+        font-weight: 600;
+        text-align: right;
+      }
+    }
+  }
+  .container {
+    width: 100px;
+    height: 100px;
+    @include x-small-devices {
+      width: 60px;
+      height: 60px;
+    }
+    img {
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+  }
+}
