@@ -1,7 +1,10 @@
+import Form from "./components/Form"
+
 export default function Home() {
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <main>
+      <h2>Create Employee</h2>
+      <Form />
+    </main>
   )
 }
