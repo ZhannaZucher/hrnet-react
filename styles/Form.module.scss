@@ -1,0 +1,105 @@
+@import "./mixins.module.scss";
+@import "./variables.module.scss";
+
+.form {
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .flex,
+  fieldset {
+    flex: 0 1 48%;
+  }
+
+  .submit {
+    margin-top: 30px;
+  }
+
+  label {
+    line-height: 2;
+    text-align: left;
+    display: block;
+    margin: 20px 0 13px;
+    color: $color-brand-dark;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .select::-ms-expand {
+    display: none;
+  }
+
+  .select_wrapper {
+    position: relative;
+  }
+  .select_wrapper::before {
+    content: "❯";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%) rotate(90deg);
+    display: block;
+    pointer-events: none;
+  }
+
+  input:focus,
+  .select:focus {
+    outline: none;
+    box-shadow: 0 0 4px $color-brand-light;
+  }
+
+  input,
+  .select {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid $color-brand-light;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 1em;
+  }
+  p {
+    color: #bf1650;
+    font-weight: normal;
+    font-size: 0.9em;
+  }
+  p::before {
+    display: inline;
+    content: "⚠ ";
+  }
+  input[type="submit"] {
+    background: $color-brand-medium;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 10px;
+    height: 64px;
+    font-size: 1.1em;
+    transition: 500ms;
+  }
+  input[type="submit"]:hover {
+    background: $color-brand-dark;
+    transition: 500ms;
+  }
+  input[type="submit"]:disabled {
+    opacity: 0.5;
+  }
+}
