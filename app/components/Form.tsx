@@ -3,18 +3,7 @@ import { states } from "@/data/states"
 import { useForm } from "react-hook-form"
 import styles from "@/styles/Form.module.scss"
 import { departments } from "@/data/departments"
-
-type FormData = {
-  firstName: string
-  lastName: string
-  //   birthDate: string
-  //   startDate: string
-  street: string
-  city: string
-  state: string
-  zipCode: string
-  dept: string
-}
+import FormInput, { FormData } from "./FormInput"
 
 const Form = () => {
   const {
@@ -36,38 +25,34 @@ const Form = () => {
     <form onSubmit={onSubmit} className={styles.form}>
       <div className={styles.wrapper}>
         <div className={styles.flex}>
-          <label>
-            First Name
-            <input
-              type="text"
-              {...register("firstName", {
-                required: "This field is required",
-                pattern: {
-                  value: /[A-Za-z]{2}/,
-                  message: "Enter at least 2 caracters",
-                },
-              })}
-            />
-          </label>
-          {errors?.firstName && (
-            <p>{errors?.firstName?.message || "First name is required"}</p>
-          )}
-          <label>
-            Last Name
-            <input
-              type="text"
-              {...register("lastName", {
-                required: "This field is required",
-                pattern: {
-                  value: /[A-Za-z]{2}/,
-                  message: "Enter at least 2 caracters",
-                },
-              })}
-            />
-          </label>
-          {errors?.lastName && (
-            <p>{errors?.lastName?.message || "Last name is required"}</p>
-          )}
+          <FormInput
+            type="text"
+            label="First Name"
+            name="firstName"
+            errors={errors}
+            register={register}
+            validationSchema={{
+              required: "This field is required",
+              pattern: {
+                value: /[A-Za-z]{2}/,
+                message: "Enter at least 2 caracters",
+              },
+            }}
+          />
+          <FormInput
+            type="text"
+            label="Last Name"
+            name="lastName"
+            errors={errors}
+            register={register}
+            validationSchema={{
+              required: "This field is required",
+              pattern: {
+                value: /[A-Za-z]{2}/,
+                message: "Enter at least 2 caracters",
+              },
+            }}
+          />
           <label>
             Date of Birth
             <input type="text" />
@@ -77,38 +62,35 @@ const Form = () => {
             <input type="text" />
           </label>
         </div>
-
         <div className={styles.flex}>
-          <label>
-            Street
-            <input
-              type="text"
-              {...register("street", {
-                required: "This field is required",
-                pattern: {
-                  value: /[A-Za-z0-9]{5}/,
-                  message: "Enter at least 5 caracters",
-                },
-              })}
-            />
-          </label>
-          {errors?.street && (
-            <p>{errors?.street?.message || "Street is required"}</p>
-          )}
-          <label>
-            City
-            <input
-              type="text"
-              {...register("city", {
-                required: "This field is required",
-                pattern: {
-                  value: /[A-Za-z]{2}/,
-                  message: "Enter at least 2 caracters",
-                },
-              })}
-            />
-          </label>
-          {errors?.city && <p>{errors?.city?.message || "City is required"}</p>}
+          <FormInput
+            type="text"
+            label="Street"
+            name="street"
+            errors={errors}
+            register={register}
+            validationSchema={{
+              required: "This field is required",
+              pattern: {
+                value: /[A-Za-z0-9]{5}/,
+                message: "Enter at least 5 caracters",
+              },
+            }}
+          />
+          <FormInput
+            type="text"
+            label="City"
+            name="city"
+            errors={errors}
+            register={register}
+            validationSchema={{
+              required: "This field is required",
+              pattern: {
+                value: /[A-Za-z]{2}/,
+                message: "Enter at least 2 caracters",
+              },
+            }}
+          />
           <label>
             State
             <div className={styles.select_wrapper}>
@@ -132,22 +114,20 @@ const Form = () => {
           {errors?.state && (
             <p>{errors?.state?.message || "State is required"}</p>
           )}
-          <label>
-            Zip Code
-            <input
-              type="number"
-              {...register("zipCode", {
-                required: "This field is required",
-                pattern: {
-                  value: /[0-9]{5}/,
-                  message: "Enter 5 digits",
-                },
-              })}
-            />
-          </label>
-          {errors?.zipCode && (
-            <p>{errors?.zipCode?.message || "Zip Code is required"}</p>
-          )}
+          <FormInput
+            type="number"
+            label="Zip Code"
+            name="zipCode"
+            errors={errors}
+            register={register}
+            validationSchema={{
+              required: "This field is required",
+              pattern: {
+                value: /[0-9]{5}/,
+                message: "Enter 5 digits",
+              },
+            }}
+          />
         </div>
       </div>
       <label>
