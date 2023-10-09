@@ -9,15 +9,21 @@
   .wrapper {
     display: flex;
     justify-content: space-between;
+    @include small-devices {
+      @include vertical-flex;
+    }
   }
 
   .flex,
   fieldset {
     flex: 0 1 48%;
+    @include small-devices {
+      width: 100%;
+    }
   }
 
   .submit {
-    margin-top: 30px;
+    margin: 40px 0;
   }
 
   label {
