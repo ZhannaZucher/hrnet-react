@@ -122,3 +122,13 @@ body {
   color: #585858;
   height: 100vh;
 }
+
+main {
+  margin: 0 auto;
+  h2 {
+    text-align: center;
+    margin: 40px 0;
+    font-weight: normal;
+    font-size: 2em;
+  }
+}
