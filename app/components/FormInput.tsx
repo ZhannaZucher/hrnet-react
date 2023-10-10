@@ -1,16 +1,5 @@
+import { FormData } from "@/models/types"
 import { Path, UseFormRegister, type FieldErrorsImpl } from "react-hook-form"
-
-export type FormData = {
-  firstName: string
-  lastName: string
-  //   birthDate: string
-  //   startDate: string
-  street: string
-  city: string
-  state: string
-  zipCode: string
-  dept: string
-}
 
 type InputProps = {
   type: string
