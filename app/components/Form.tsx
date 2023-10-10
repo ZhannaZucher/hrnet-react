@@ -8,8 +8,9 @@ import { FormData } from "@/models/types"
 import FormDatePicker from "./FormDatePicker"
 
 const Form = () => {
+  //object containing methods for registering components into React Hook Form
   const methods = useForm<FormData>({
-    mode: "onBlur",
+    mode: "onBlur", //indicates when the error message appears
   })
 
   const onSubmit = methods.handleSubmit((data) => {
@@ -20,6 +21,7 @@ const Form = () => {
 
   return (
     <FormProvider {...methods}>
+      {/* pass all methods into the context */}
       <form onSubmit={onSubmit} className={styles.form}>
         <div className={styles.wrapper}>
           <div className={styles.flex}>
@@ -155,7 +157,7 @@ const Form = () => {
           <input
             type="submit"
             value="Create"
-            disabled={!methods.formState.isValid}
+            disabled={!methods.formState.isValid} //submit btn disabled until all form fields are valid
           />
         </div>
       </form>

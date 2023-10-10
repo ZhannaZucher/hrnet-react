@@ -10,9 +10,9 @@ type Props = {
 
 const FormDatePicker = ({ name, label }: Props) => {
   const {
-    control,
+    control, //object containing methods for registering components into React Hook Form
     formState: { errors },
-  } = useFormContext() // Retrieve hook methods from the <FormProvider />
+  } = useFormContext() // Retrieve all hook methods from the <FormProvider />
   return (
     <>
       <label>
@@ -23,9 +23,9 @@ const FormDatePicker = ({ name, label }: Props) => {
           rules={{ required: true }}
           render={({ field }) => (
             <DatePicker
-              selected={field.value}
-              onChange={field.onChange}
-              onBlur={field.onBlur}
+              selected={field.value} //the current value of the controlled component
+              onChange={field.onChange} //sends the input's value to hook form
+              onBlur={field.onBlur} //sends the input's onBlur event to hook form
             />
           )}
         />
