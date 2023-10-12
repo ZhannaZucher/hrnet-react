@@ -7,7 +7,7 @@ import FormInput from "./FormInput"
 import { FormData } from "@/models/types"
 import FormDatePicker from "./FormDatePicker"
 import FormSelect from "./FormSelect"
-import { formatDepartments } from "@/utils/formatData"
+import { formatOptions } from "@/utils/formatData"
 
 const Form = () => {
   //object containing methods for registering components into React Hook Form
@@ -20,7 +20,8 @@ const Form = () => {
     methods.reset()
   })
 
-  const deptsOptions = formatDepartments(departments)
+  const deptsOptions = formatOptions(departments)
+  const statesOptions = formatOptions(states)
 
   return (
     <FormProvider {...methods}>
@@ -96,32 +97,7 @@ const Form = () => {
                 },
               }}
             />
-            <label>
-              State
-              <div className={styles.select_wrapper}>
-                <select
-                  {...methods.register("state", {
-                    required: "The state is required",
-                  })}
-                  className={styles.select}
-                >
-                  <option key="0" value="">
-                    Select...
-                  </option>
-                  {states.map((state) => (
-                    <option key={state.abbreviation} value={state.abbreviation}>
-                      {state.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </label>
-            {methods.formState.errors?.state && (
-              <p>
-                {methods.formState.errors?.state?.message ||
-                  "State is required"}
-              </p>
-            )}
+            <FormSelect label="State" name="state" options={statesOptions} />
             <FormInput
               type="number"
               label="Zip Code"
@@ -139,32 +115,6 @@ const Form = () => {
           </div>
         </div>
         <FormSelect label="Department" name="dept" options={deptsOptions} />
-        {/* <label>
-          Department
-          <div className={styles.select_wrapper}>
-            <select
-              {...methods.register("dept", {
-                required: "The department is required",
-              })}
-              className={styles.select}
-            >
-              <option key="0" value="">
-                Select...
-              </option>
-              {departments.map((dept) => (
-                <option key={dept} value={dept}>
-                  {dept}
-                </option>
-              ))}
-            </select>
-          </div>
-        </label>
-        {methods.formState.errors?.dept && (
-          <p>
-            {methods.formState.errors?.dept?.message ||
-              "Department is required"}
-          </p>
-        )} */}
         <div className={styles.submit}>
           <input
             type="submit"
