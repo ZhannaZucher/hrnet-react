@@ -6,9 +6,11 @@ import { FormData } from "@/models/types"
 type Props = {
   label: string
   name: Path<FormData>
+  startFrom?: Date | null
+  endWith?: Date
 }
 
-const FormDatePicker = ({ name, label }: Props) => {
+const FormDatePicker = ({ name, label, startFrom, endWith }: Props) => {
   const {
     control, //object containing methods for registering components into React Hook Form
     formState: { errors },
@@ -26,6 +28,8 @@ const FormDatePicker = ({ name, label }: Props) => {
               selected={field.value} //the current value of the controlled component
               onChange={field.onChange} //sends the input's value to hook form
               onBlur={field.onBlur} //sends the input's onBlur event to hook form
+              minDate={startFrom ? startFrom : null}
+              maxDate={endWith ? endWith : null}
             />
           )}
         />
