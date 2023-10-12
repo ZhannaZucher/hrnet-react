@@ -9,3 +9,15 @@ export type FormData = {
   zipCode: string
   dept: string
 }
+
+export type FormattedOptions = {
+  value: string
+  label: string
+}
+
+type States = {
+  name: string
+  abbreviation: string
+}
+
+export type Data = Array<States> | string[]
