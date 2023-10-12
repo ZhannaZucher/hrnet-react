@@ -6,6 +6,8 @@ import { departments } from "@/data/departments"
 import FormInput from "./FormInput"
 import { FormData } from "@/models/types"
 import FormDatePicker from "./FormDatePicker"
+import FormSelect from "./FormSelect"
+import { formatDepartments } from "@/utils/formatData"
 
 const Form = () => {
   //object containing methods for registering components into React Hook Form
@@ -14,14 +16,15 @@ const Form = () => {
   })
 
   const onSubmit = methods.handleSubmit((data) => {
-    // console.log(data)
     alert(JSON.stringify(data))
     methods.reset()
   })
 
+  const deptsOptions = formatDepartments(departments)
+
   return (
     <FormProvider {...methods}>
-      {/* pass all methods into the context */}
+      {/* pass all form methods into the context */}
       <form onSubmit={onSubmit} className={styles.form}>
         <div className={styles.wrapper}>
           <div className={styles.flex}>
@@ -53,8 +56,16 @@ const Form = () => {
                 },
               }}
             />
-            <FormDatePicker label="Date of Birth" name="birthDate" />
-            <FormDatePicker label="Date of Start" name="startDate" />
+            <FormDatePicker
+              label="Date of Birth"
+              name="birthDate"
+              endWith={new Date()} //dates range ends with today's date
+            />
+            <FormDatePicker
+              label="Date of Start"
+              name="startDate"
+              startFrom={methods.getValues("birthDate") || null} //if the date of birth is already entered, dates to pick start from the date of birth OR null
+            />
           </div>
           <div className={styles.flex}>
             <FormInput
@@ -127,7 +138,8 @@ const Form = () => {
             />
           </div>
         </div>
-        <label>
+        <FormSelect label="Department" name="dept" options={deptsOptions} />
+        {/* <label>
           Department
           <div className={styles.select_wrapper}>
             <select
@@ -152,7 +164,7 @@ const Form = () => {
             {methods.formState.errors?.dept?.message ||
               "Department is required"}
           </p>
-        )}
+        )} */}
         <div className={styles.submit}>
           <input
             type="submit"
