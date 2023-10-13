@@ -1,4 +1,3 @@
-// import Select from "react-select"
 "use client"
 import { useFormContext, Controller, Path } from "react-hook-form"
 import { FormData } from "@/models/types"
@@ -27,13 +26,42 @@ const FormSelect = ({ label, name, options }: SelectProps) => {
           rules={{ required: true }}
           render={({ field }) => (
             <ReactSelect
-              // {...field}
               instanceId={id}
-              defaultValue={null}
+              isSearchable
+              noOptionsMessage={() => "No options found"}
               value={field.value}
               onChange={field.onChange}
               options={options}
               onBlur={field.onBlur}
+              theme={(theme) => ({
+                ...theme,
+                border: "1px solid #94ad18f6",
+                colors: {
+                  ...theme.colors,
+                  primary25: "#94ad18f6",
+                  primary: "#94ad18f6",
+                },
+              })}
+              styles={{
+                control: (baseStyles, state) => ({
+                  ...baseStyles,
+                  fontWeight: "normal",
+                  border: "1px solid #94ad18f6",
+                  borderRadius: "4px",
+                  boxShadow: state.isFocused ? "0 0 4px #94ad18f6" : "none",
+                }),
+                option: (baseStyles, state) => ({
+                  ...baseStyles,
+                  fontWeight:
+                    state.isFocused || state.isSelected ? "bold" : "normal",
+                  color: state.isFocused ? "white" : "inherit",
+                }),
+                noOptionsMessage: (baseStyles) => ({
+                  ...baseStyles,
+                  fontWeight: "normal",
+                  color: "#bf1650",
+                }),
+              }}
             />
           )}
         />
