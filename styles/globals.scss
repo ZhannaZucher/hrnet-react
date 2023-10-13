@@ -159,3 +159,8 @@ main {
 .react-datepicker__navigation-icon::before {
   border-color: $color-white !important;
 }
+
+//disable
+.css-1fdsijx-ValueContainer input:focus {
+  box-shadow: none !important;
+}
