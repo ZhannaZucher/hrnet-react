@@ -20,17 +20,34 @@ const Form = () => {
       startDate: undefined,
       street: "",
       city: "",
-      state: "",
+      state: undefined,
       zipCode: "",
-      dept: "",
+      dept: undefined,
     },
   })
 
+  //subscribe for birthDate input value watching for further handling startDate input rules
+  const birthDateInputValue = methods.watch("birthDate")
+
   const onSubmit = methods.handleSubmit((data) => {
-    alert(JSON.stringify(data))
+    //modeling employee object from form's data
+    const employee = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      birthDate: data.birthDate.toLocaleDateString("en-US"),
+      startDate: data.startDate.toLocaleDateString("en-US"),
+      street: data.street,
+      city: data.city,
+      state: data.state.value,
+      zipCode: data.zipCode,
+      dept: data.dept.value,
+    }
+    // alert(JSON.stringify(employee))
+    console.log(employee)
     methods.reset()
   })
 
+  //format data for react-select components
   const deptsOptions = formatOptions(departments)
   const statesOptions = formatOptions(states)
 
@@ -76,7 +93,9 @@ const Form = () => {
             <FormDatePicker
               label="Date of Start"
               name="startDate"
-              startFrom={methods.getValues("birthDate") || null} //if the date of birth is already entered, dates to pick start from the date of birth OR null
+              startFrom={
+                birthDateInputValue ? methods.getValues("birthDate") : null
+              } //if the date of birth is already entered, dates to pick start from the date of birth OR null
             />
           </div>
           <div className={styles.flex}>
