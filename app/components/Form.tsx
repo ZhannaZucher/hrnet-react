@@ -13,6 +13,17 @@ const Form = () => {
   //object containing methods for registering components into React Hook Form
   const methods = useForm<FormData>({
     mode: "onBlur", //indicates when the error message appears
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      birthDate: undefined,
+      startDate: undefined,
+      street: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      dept: "",
+    },
   })
 
   const onSubmit = methods.handleSubmit((data) => {
