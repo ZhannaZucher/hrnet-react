@@ -160,7 +160,7 @@ main {
   border-color: $color-white !important;
 }
 
-//disable
+//force disable focus on react-select input
 .css-1fdsijx-ValueContainer input:focus {
   box-shadow: none !important;
 }
