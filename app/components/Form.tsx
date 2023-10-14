@@ -9,7 +9,11 @@ import FormDatePicker from "./FormDatePicker"
 import FormSelect from "./FormSelect"
 import { formatOptions } from "@/utils/formatData"
 
-const Form = () => {
+type HandleModalProps = {
+  setActive: (value: boolean) => void
+}
+
+const Form = ({ setActive }: HandleModalProps) => {
   //object containing methods for registering components into React Hook Form
   const methods = useForm<FormData>({
     mode: "onBlur", //indicates when the error message appears
@@ -20,9 +24,9 @@ const Form = () => {
       startDate: undefined,
       street: "",
       city: "",
-      state: undefined,
+      state: "",
       zipCode: "",
-      dept: undefined,
+      dept: "",
     },
   })
 
@@ -38,12 +42,13 @@ const Form = () => {
       startDate: data.startDate.toLocaleDateString("en-US"),
       street: data.street,
       city: data.city,
-      state: data.state.value,
+      state: typeof data.state !== "string" && data.state.value,
       zipCode: data.zipCode,
-      dept: data.dept.value,
+      dept: typeof data.dept !== "string" && data.dept.value,
     }
     // alert(JSON.stringify(employee))
     console.log(employee)
+    setActive(true)
     methods.reset()
   })
 

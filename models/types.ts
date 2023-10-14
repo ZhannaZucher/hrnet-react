@@ -22,7 +22,7 @@ export type FormData = {
   startDate: Date
   street: string
   city: string
-  state: SelectField
+  state: SelectField | string
   zipCode: string
-  dept: SelectField
+  dept: SelectField | string
 }
