@@ -1,0 +1,56 @@
+@import "./mixins.module.scss";
+@import "./variables.module.scss";
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include centered-flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal__content {
+  padding: 1.3em;
+  border-radius: 0.8em;
+  background-color: #fff;
+  width: 50vw;
+  @include small-devices {
+    width: 70vw;
+  }
+  @include x-small-devices {
+    width: 90vw;
+  }
+  transform: scale(0.5);
+  transition: 0.4s all;
+}
+
+.modal__content.active {
+  transform: scale(1);
+  @include vertical-flex;
+}
+
+#modal__close {
+  display: block;
+  font-weight: bold;
+  border: 1px solid $color-white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  @include centered-flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: -8px -8px 0 0;
+  background-color: $color-brand-light;
+  cursor: pointer;
+  color: $color-white;
+}
