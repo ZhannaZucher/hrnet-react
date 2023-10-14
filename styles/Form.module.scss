@@ -14,8 +14,7 @@
     }
   }
 
-  .flex,
-  fieldset {
+  .flex {
     flex: 0 1 48%;
     @include small-devices {
       width: 100%;
@@ -37,44 +36,12 @@
     height: 66px;
   }
 
-  .select {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    border: none;
-    background-color: transparent;
-    outline: none;
-    cursor: pointer;
-    width: 100%;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-  .select::-ms-expand {
-    display: none;
-  }
-
-  .select_wrapper {
-    position: relative;
-  }
-  .select_wrapper::before {
-    content: "❯";
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%) rotate(90deg);
-    display: block;
-    pointer-events: none;
-  }
-
-  input:focus,
-  .select:focus {
+  input:focus {
     outline: none;
     box-shadow: 0 0 4px $color-brand-light;
   }
 
-  input,
-  .select {
+  input {
     display: block;
     width: 100%;
     border-radius: 4px;
