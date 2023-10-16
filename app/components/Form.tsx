@@ -9,11 +9,11 @@ import FormDatePicker from "./FormDatePicker"
 import FormSelect from "./FormSelect"
 import { formatOptions } from "@/utils/formatData"
 
-type HandleModalProps = {
+type FormProps = {
   setActive: (value: boolean) => void
 }
 
-const Form = ({ setActive }: HandleModalProps) => {
+const Form = ({ setActive }: FormProps) => {
   //object containing methods for registering components into React Hook Form
   const methods = useForm<FormData>({
     mode: "onBlur", //indicates when the error message appears
