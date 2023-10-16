@@ -4,7 +4,7 @@ import { Path, UseFormRegister, type FieldErrorsImpl } from "react-hook-form"
 type InputProps = {
   type: string
   label: string
-  name: Path<FormData>
+  name: "firstName" | "lastName" | "street" | "city" | "zipCode"
   register: UseFormRegister<FormData>
   validationSchema: any
   errors: Partial<FieldErrorsImpl<FormData>>
