@@ -26,3 +26,19 @@ export type FormData = {
   zipCode: string
   dept: SelectField | string
 }
+
+export type Employee = {
+  firstName: string
+  lastName: string
+  birthDate: string
+  startDate: string
+  street: string
+  city: string
+  state: string
+  zipCode: string
+  dept: string
+}
+
+export type AppState = {
+  data: Array<Employee>
+}

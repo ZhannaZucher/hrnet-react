@@ -2,6 +2,7 @@ import "../styles/globals.scss"
 import type { Metadata } from "next"
 import { Montserrat } from "next/font/google"
 import Header from "./components/Header"
+import Providers from "./store/providers"
 
 const montserrat = Montserrat({ subsets: ["latin"] })
 
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <Header />
-        {children}
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   )
