@@ -77,3 +77,23 @@
     opacity: 0.5;
   }
 }
+
+.confirmation {
+  @include vertical-flex;
+  border-radius: 0.8em;
+  font-weight: bold;
+  color: $color-brand-medium;
+  width: 50vw;
+  @include small-devices {
+    width: 70vw;
+  }
+  @include x-small-devices {
+    width: 90vw;
+  }
+
+  button {
+    color: $color-white;
+    background-color: $color-brand-light !important;
+    border: 1px solid $color-white;
+  }
+}

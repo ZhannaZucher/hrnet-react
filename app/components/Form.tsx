@@ -9,7 +9,7 @@ import { FormData } from "@/models/types"
 import FormDatePicker from "./FormDatePicker"
 import FormSelect from "./FormSelect"
 import { formatOptions } from "@/utils/formatData"
-import FormModal from "./FormModal"
+import { Modal } from "zz-modal"
 
 const Form = () => {
   const [modalActive, setModalActive] = useState(false)
@@ -160,9 +160,13 @@ const Form = () => {
           </div>
         </form>
       </FormProvider>
-      <FormModal active={modalActive} setActive={setModalActive}>
+      <Modal
+        active={modalActive}
+        setActive={setModalActive}
+        customClass={styles.confirmation}
+      >
         <p>Employee created !</p>
-      </FormModal>
+      </Modal>
     </>
   )
 }

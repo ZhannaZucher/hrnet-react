@@ -15,7 +15,8 @@
     "react-datepicker": "^4.20.0",
     "react-dom": "^18",
     "react-hook-form": "^7.47.0",
-    "react-select": "^5.7.7"
+    "react-select": "^5.7.7",
+    "zz-modal": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
