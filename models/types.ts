@@ -34,9 +34,9 @@ export type Employee = {
   startDate: string
   street: string
   city: string
-  state: string
+  state: string | false
   zipCode: string
-  dept: string
+  dept: string | false
 }
 
 export type AppState = {

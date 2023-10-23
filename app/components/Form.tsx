@@ -10,9 +10,13 @@ import FormDatePicker from "./FormDatePicker"
 import FormSelect from "./FormSelect"
 import { formatOptions } from "@/utils/formatData"
 import { Modal } from "zz-modal"
+import { useAppDispatch } from "../store/store"
+import { addEmployee } from "../store/employeesSlice"
 
 const Form = () => {
   const [modalActive, setModalActive] = useState(false)
+
+  const dispatch = useAppDispatch()
 
   //object containing methods for registering components into React Hook Form
   const methods = useForm<FormData>({
@@ -48,6 +52,7 @@ const Form = () => {
     }
     // alert(JSON.stringify(employee))
     console.log(employee)
+    dispatch(addEmployee(employee))
     setModalActive(true)
     methods.reset()
   })
