@@ -1,5 +1,4 @@
 import "../styles/globals.scss"
-import "node-self"
 import type { Metadata } from "next"
 import { Montserrat } from "next/font/google"
 import Header from "./components/Header"
