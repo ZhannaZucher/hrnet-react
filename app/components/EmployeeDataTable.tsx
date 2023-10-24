@@ -1,17 +1,26 @@
 "use client"
-import { useMemo } from "react"
+import { useMemo, useState, useEffect } from "react"
 import DataTable, { TableColumn } from "react-data-table-component"
 import { selectEmployees, useAppSelector } from "../store/store"
 import { Employee } from "@/models/types"
+import { departments } from "../../data/departments"
 
-// const paginationComponentOptions = {
-//   rowsPerPageText: "Employees per page",
-//   selectAllRowsItem: true,
-//   selectAllRowsItemText: "All",
-// }
+const paginationComponentOptions = {
+  rowsPerPageText: "Employees per page",
+  selectAllRowsItem: true,
+  selectAllRowsItemText: "All",
+}
 
 const EmployeeDataTable = () => {
-  // useMemo will only be created once
+  const employees = useAppSelector(selectEmployees)
+  const [data, setData] = useState(employees)
+  const [loader, setLoader] = useState(true)
+
+  useEffect(() => {
+    setLoader(false)
+  }, [])
+
+  // optimization : columns with useMemo will only be created once
   const columns: TableColumn<Employee>[] = useMemo(
     () => [
       { name: "First Name", selector: (row) => row.firstName, sortable: true },
@@ -30,13 +39,19 @@ const EmployeeDataTable = () => {
     ],
     []
   )
-  const employees = useAppSelector(selectEmployees)
+
+  if (loader) {
+    return <div>Loading</div>
+  }
+
   return (
     <DataTable
       columns={columns}
-      data={employees}
-      // pagination
-      // paginationComponentOptions={paginationComponentOptions}
+      data={data}
+      pagination
+      paginationComponentOptions={paginationComponentOptions}
+      paginationRowsPerPageOptions={[10, 25, 50]}
+      fixedHeader
     />
   )
 }
