@@ -1,8 +1,11 @@
+import EmployeeDataTable from "../components/EmployeeDataTable"
+
 const Employees = () => {
   return (
-    <div>
-      <h1>Employees list</h1>
-    </div>
+    <main>
+      <h2>Employees list</h2>
+      <EmployeeDataTable />
+    </main>
   )
 }
 
