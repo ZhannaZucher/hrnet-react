@@ -1,4 +1,4 @@
-import React from "react"
+import styles from "@/styles/DataTable.module.scss"
 
 type FilterProps = {
   onFilter: React.ChangeEventHandler<HTMLInputElement>
@@ -8,9 +8,14 @@ type FilterProps = {
 
 const FilterDataTable = ({ onFilter, onClear, filterText }: FilterProps) => {
   return (
-    <div>
-      <input type="text" value={filterText} onChange={onFilter} />
-      <button onClick={onClear}>x</button>
+    <div className={styles.filter}>
+      <input
+        type="text"
+        value={filterText}
+        onChange={onFilter}
+        placeholder="filter..."
+      />
+      <button onClick={onClear}>&#10008;</button>
     </div>
   )
 }

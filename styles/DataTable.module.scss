@@ -1,0 +1,51 @@
+@import "./variables.module.scss";
+@import "./mixins.module.scss";
+
+.loader {
+  margin-top: 60px;
+  @include centered-flex;
+}
+
+.wrapper {
+  margin: 0 auto 30px;
+  width: 90%;
+  max-width: 1100px;
+}
+
+.filter {
+  display: flex;
+  justify-items: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0;
+  input {
+    display: block;
+    height: 100%;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid $color-brand-light;
+    padding: 10px 15px;
+    //  margin-bottom: 10px;
+    font-size: 1em;
+  }
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 4px $color-brand-light;
+  }
+  button {
+    display: block;
+    height: 38.35px;
+    width: 40px;
+    padding-bottom: 6px;
+    border-radius: 0 4px 4px 0;
+    @include centered-flex;
+    color: $color-white;
+    font-size: 14px;
+    background-color: $color-brand-light;
+    transition: all 0.3s;
+    &:hover {
+      background-color: $color-brand-medium;
+      font-weight: bolder;
+      transition: all 0.3s;
+    }
+  }
+}
