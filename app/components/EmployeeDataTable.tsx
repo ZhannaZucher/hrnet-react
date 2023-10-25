@@ -3,7 +3,8 @@ import { useMemo, useState, useEffect } from "react"
 import DataTable, { TableColumn } from "react-data-table-component"
 import { selectEmployees, useAppSelector } from "../store/store"
 import { Employee } from "@/models/types"
-import { departments } from "../../data/departments"
+import FilterDataTable from "./FilterDataTable"
+import { filterData } from "@/utils/dataTableUtils"
 
 const paginationComponentOptions = {
   rowsPerPageText: "Employees per page",
@@ -13,7 +14,9 @@ const paginationComponentOptions = {
 
 const EmployeeDataTable = () => {
   const employees = useAppSelector(selectEmployees)
-  const [data, setData] = useState(employees)
+  const [filterText, setFilterText] = useState("")
+  const [resetPaginationToggle, setResetPaginationToggle] = useState(false)
+  const filteredData = filterData(employees, filterText)
   const [loader, setLoader] = useState(true)
 
   useEffect(() => {
@@ -40,6 +43,22 @@ const EmployeeDataTable = () => {
     []
   )
 
+  const subHeaderFilter = useMemo(() => {
+    const handleClear = () => {
+      if (filterText) {
+        setResetPaginationToggle(!resetPaginationToggle)
+        setFilterText("")
+      }
+    }
+    return (
+      <FilterDataTable
+        onFilter={(e) => setFilterText(e.target.value)}
+        onClear={handleClear}
+        filterText={filterText}
+      />
+    )
+  }, [filterText, resetPaginationToggle])
+
   if (loader) {
     return <div>Loading</div>
   }
@@ -47,11 +66,14 @@ const EmployeeDataTable = () => {
   return (
     <DataTable
       columns={columns}
-      data={data}
+      data={filteredData}
       pagination
       paginationComponentOptions={paginationComponentOptions}
       paginationRowsPerPageOptions={[10, 25, 50]}
+      paginationResetDefaultPage={resetPaginationToggle} //reset pagination to page 1
       fixedHeader
+      subHeader
+      subHeaderComponent={subHeaderFilter}
     />
   )
 }
