@@ -1,5 +1,6 @@
 import { Employee } from "@/models/types"
 
+//checks matches with filter query in employee data
 export function filterData(
   data: Array<Employee>,
   query: string
@@ -25,4 +26,22 @@ export function filterData(
       (employee.zipCode &&
         employee.zipCode.toLowerCase().includes(query.toLowerCase()))
   )
+}
+
+//overrides default dataTable styles
+export const customStyles = {
+  headCells: {
+    style: {
+      marginTop: "16px",
+      height: "40px",
+      color: "#6f870f",
+      fontWeight: "bolder",
+      fontSize: "12px",
+    },
+  },
+  cells: {
+    style: {
+      fontSize: "12px",
+    },
+  },
 }
