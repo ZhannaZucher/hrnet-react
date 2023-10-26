@@ -1,8 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# HRnet
 
-## Getting Started
+![NEXT.js](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![TS](https://img.shields.io/badge/TypeScript-F7DF1E?style=for-the-badge&logo=typescript&logoColor=black)
+![REACT](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-303540?style=for-the-badge&logo=redux&logoColor=61DAFB)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
-First, run the development server:
+## Presentation
+
+HRnet is a redesign with React of the internal jQuery [`HR app`](https://github.com/OpenClassrooms-Student-Center/P12_Front-end) managing employee records in order to increase performance and fix bugs in jQuery plugins.
+
+Instead of the 4 jQuery plugins, this HRnet application uses React components imported from existing libraries, except for the Modal package created for this occasion.
+
+This a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Live demo of HRnet app is available on Github Pages [here]()
+
+## Local setup
+
+1. Clone and/or fork this repository.
+2. Then, run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +27,51 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Modal component
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Available on NPM: [Modal NPM](https://www.npmjs.com/package/reactjs-dialog-modal)
+or [`GitHub repo`](https://github.com/ZhannaZucher/zz-modal-library.git).
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+![npm](https://img.shields.io/badge/npm-9.2.0-%23000000?style=flat-square&logo=npm&logoColor=white)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Node.js](https://img.shields.io/badge/Node.js-18.12.1-43853D?style=flat-square&logo=node.js&logoColor=white)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Dependencies
 
-## Deploy on Vercel
+![GitHub package.json dependencies](https://img.shields.io/github/package-json/dependency-version/ZhannaZucher/hrnet-react/react?label=REACT&logo=react&logoColor=61DAFB&color=303540&style=flat-square)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![GitHub package.json dependencies](https://img.shields.io/github/package-json/dependency-version/ZhannaZucher/hrnet-react/react-dom?label=REACT-DOM&logo=react-dom&logoColor=61DAFB&color=303540&style=flat-square)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![GitHub package.json dependencies](https://img.shields.io/github/package-json/dependency-version/ZhannaZucher/hrnet-react/next?label=NEXT&logo=next&logoColor=61DAFB&color=303540&style=flat-square)
+
+![Redux Toolkit](https://img.shields.io/badge/Redux-%5E8.3.1-blue)
+
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-%5E1.9.7-blue)
+
+![react-hook-form](https://img.shields.io/badge/react--hook--form-%5E7.47.0-blue)
+
+![styled-components](https://img.shields.io/badge/styled--components-%5E5.3.3-blue)
+
+![react-datepicker](https://img.shields.io/badge/react--datepicker-%5E4.20.0-blue)
+
+![react-loader-spinner](https://img.shields.io/badge/react--loader--spinner-%5E5.4.5-blue)
+
+![react-select](https://img.shields.io/badge/react--select-%5E5.7.7-blue)
+
+![react-data-table-component](https://img.shields.io/badge/react--data--table--component-%5E7.5.4-blue)
+
+![zz-modal](https://img.shields.io/badge/zz--modal-%5E1.0.3-blue)
+
+### DevDependencies
+
+![typescript](https://img.shields.io/badge/Typescript-%5E5-blue)
+
+![Eslint](https://img.shields.io/badge/Eslint-%5E8-blue)
+
+![Sass](https://img.shields.io/badge/Sass-%5E1.68.0-blue)
