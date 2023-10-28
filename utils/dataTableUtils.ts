@@ -34,7 +34,7 @@ export const customStyles = {
     style: {
       marginTop: "16px",
       height: "40px",
-      color: "#6f870f",
+      color: "#435308",
       fontWeight: "bolder",
       fontSize: "12px",
     },
