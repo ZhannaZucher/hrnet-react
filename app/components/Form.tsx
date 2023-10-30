@@ -50,8 +50,6 @@ const Form = () => {
       zipCode: data.zipCode,
       dept: typeof data.dept !== "string" && data.dept.value,
     }
-    // alert(JSON.stringify(employee))
-    console.log(employee)
     dispatch(addEmployee(employee))
     setModalActive(true)
     methods.reset()
