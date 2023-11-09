@@ -12,6 +12,9 @@ HRnet is a redesign with React of the internal jQuery [`HR app`](https://github.
 
 Instead of the 4 jQuery plugins, this HRnet application uses React components imported from existing libraries, except for the Modal package created for this occasion.
 
+![HRnet1](screenshot1.png)
+![HRnet2](screenshot2.png)
+
 ## Live demo of HRnet app is available on Github Pages [here](https://hrnet-react-tau.vercel.app/)
 
 ## Local setup
