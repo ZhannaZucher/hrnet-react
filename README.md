@@ -34,7 +34,7 @@ pnpm dev
 
 ## Modal component
 
-Available on NPM: [Modal NPM](https://www.npmjs.com/package/reactjs-dialog-modal)
+Available on NPM: [Modal NPM](https://www.npmjs.com/package/zz-modal)
 or [`GitHub repo`](https://github.com/ZhannaZucher/zz-modal-library.git).
 
 ### Prerequisites
